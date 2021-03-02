@@ -1,0 +1,4 @@
+Comprobando que lee el fichero
+primero lee esto
+luego esto
+y finalizamos el fichero
