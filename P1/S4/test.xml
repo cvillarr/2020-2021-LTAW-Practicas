@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- declaración que metemos en todos los doc XML -->
+
+<!-- utilizamos el DOCTYPE para definir una gramatica -->
+<!DOCTYPE pirulo> <!-- mi elemento raíz es pirulo-->
+
+<!-- comentarios en XML -->
+<!-- varias lineas de comentario
+    otra 
+    otra -->
+
+<pirulo>
+    <mengulo attr1 = "mi_atributo1">
+        Mengulo 1
+    </mengulo>
+
+    <mengulo>
+        Mengulo 2
+    </mengulo>
+</pirulo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Estructura de mi tienda -->
+<!-- Elemento raíz -->
+<tienda xmlns:t1 = "http://cvillarr.github.com/MiTienda" 
+        xmlns:t2 = "http://w3c.definitions/store/es">
+    <!-- indico mi espacio de nombres, 
+    pero no es una web que esté operativa
+    es un identificador único-->
+    
+    <!-- Dentro de mi tienda hay diferentes productos-->
+    <t1:producto>
+        Un producto
+    </t1:producto>
+
+    <t2:producto>
+        Otro producto
+    </t2:producto>
+
+</tienda>

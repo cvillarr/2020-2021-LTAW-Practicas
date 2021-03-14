@@ -1,0 +1,5 @@
+<!ELEMENT tienda (producto+)> <!-- le indico que quiero que haya un producto o más-->
+    <!ELEMENT producto (nombre, descripcion?, stock)> <!-- le pongo la interrogación para que sea opcional tenerlo o no-->
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT descripcion (#PCDATA)>
+    <!ELEMENT stock (#PCDATA)>

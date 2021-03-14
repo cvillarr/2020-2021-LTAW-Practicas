@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Declaracion de la gramatica, especificamos todo lo que queramos meter-->
+<!DOCTYPE tienda SYSTEM "def_lenguaje.dtd">
+
+<!-- Dentro del elemento tienda solo puede haber
+     cadenas de texto. Ninguna etiqueta -->
+<tienda>
+    <producto>
+        <nombre> Cesta Mickey </nombre>
+        <!-- puedo no tener descripción porque lo he puesto como opcional con '?'-->
+        <stock> A disposición </stock>
+    </producto>
+    <producto>
+        <nombre> Cesta completa </nombre>
+        <descripcion> pañales, mordedor, muselina... </descripcion>
+        <stock> A disposición </stock>
+    </producto>
+</tienda>
