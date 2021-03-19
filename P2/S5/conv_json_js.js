@@ -1,4 +1,5 @@
 //-- Cadena con la estructura de la tienda en JSON
+
 const tienda_json = `[
   {
     "nombre": "Alhambra II",
