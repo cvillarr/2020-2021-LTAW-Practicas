@@ -48,7 +48,7 @@ if (peticion_type == 'css'){
 }
 
 //Defino el tipo de imágenes
-if ((peticion_type == 'jpeg') || (peticion_type == 'jpg') || (peticion_type == 'ico')){
+if ((peticion_type == 'jpeg') || (peticion_type == 'jpg') || (peticion_type == 'ico') || (peticion_type == 'gif')){
     mime = "image/" + peticion_type;
 }
 
@@ -59,6 +59,8 @@ fs.readFile(peticion, (err, data) => {
     //Lanza error
         res.writeHead(404,{'Content-Type': mime});
         console.log("NOT FOUND");
+        petition = "error.html";
+        data = fs.readFileSync(petition);
     } else {
         res.writeHead(200, {'Content-Type': mime});
         console.log("Petición aceptada, 200 OK!");
