@@ -36,36 +36,45 @@ h2{
 }
 
 #tarta_nena{
-    margin-right: 100px;
-    margin-top: 100px;
+    margin-right: 50px;
+    margin-top: 50px;
     height: 300px;
     width: 300px;
 }
 
 #cesta_pluto{
-    margin-right: 100px;
-    margin-top: 100px;
+    margin-right: 50px;
+    margin-top: 50px;
     height: 300px;
     width: 300px;
 }
 
 #cesta_completa{
-    margin-right: 100px;
-    margin-top: 100px;
+    margin-right: 50px;
+    margin-top: 50px;
     height: 300px;
     width: 300px;
 }
 
 #cesta_oso{
-    margin-right: 100px;
-    margin-top: 100px;
+    margin-right: 50px;
+    margin-top: 50px;
     height: 300px;
     width: 300px;
 }
 
 #tarta_mickey{
-    margin-right: 100px;
-    margin-top: 100px;
+    margin-right: 50px;
+    margin-top: 50px;
     height: 300px;
     width: 300px;
+}
+
+a{
+    font-family: "Walt Disney Script", arial;
+    text-align: center;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 40px;
+
 }
