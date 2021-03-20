@@ -52,10 +52,10 @@ fs.readFile(peticion, (err, data) => {
 
     if (err){
     //Lanza error
-        res.writeHead(404,{'Content-Type': mime});
+        res.writeHead(404,{'Content-Type': mimetype});
         console.log("NOT FOUND");
     }else{
-        res.writeHead(200, {'Content-Type': mime});
+        res.writeHead(200, {'Content-Type': mimetype});
         console.log("Petición aceptada, 200 OK!");
     }
     // Envío los datos solicitados
