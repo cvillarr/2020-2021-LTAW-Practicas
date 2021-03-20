@@ -17,10 +17,10 @@ const url = new URL(req.url, 'http://' + req.headers['host']);
     console.log("\nSe ha solicitado el recurso: " + url.pathname);
 
 //Inicializo la variable petición
-var peticion = "";
+let peticion = "";
   
 //Analizo el recurso solicitado por el cliente
-if (url.pathname == '/') {
+if (url.pathname == "/") {
     peticion += "/tienda.html"; //petición de la pag principal 
 } else {
     peticion += url.pathname; //petición de cualquier otra
@@ -34,17 +34,22 @@ peticion = "." + peticion;
 console.log("Recurso: " + peticion);
 console.log("Extensión del recurso: " + peticion_type);
 
-//Defino el tipo de archivo html
-var mimetype = "text/html";
+//Asigno tipo de mime
+let mime = peticion_type;
 
-//Defino el tipo de imágenes
-if ((peticion_type == 'jpeg') || (peticion_type == 'jpg')){
-    mimetype = "image/" + peticion_type;
-}
+//Defino el tipo de archivo html
+if (peticion_type == 'html'){
+    mime = "text/html";
+};
 
 //Defino el tipo de archivo css
-if (peticion_type == "css"){
-    mimetype = "text/css";
+if (peticion_type == 'css'){
+    mime = "text/css";
+}
+
+//Defino el tipo de imágenes
+if ((peticion_type == 'jpeg') || (peticion_type == 'jpg') || (peticion_type == 'ico')){
+    mime = "image/" + peticion_type;
 }
 
 //Lectura asíncrona
@@ -52,10 +57,10 @@ fs.readFile(peticion, (err, data) => {
 
     if (err){
     //Lanza error
-        res.writeHead(404,{'Content-Type': mimetype});
+        res.writeHead(404,{'Content-Type': mime});
         console.log("NOT FOUND");
-    }else{
-        res.writeHead(200, {'Content-Type': mimetype});
+    } else {
+        res.writeHead(200, {'Content-Type': mime});
         console.log("Petición aceptada, 200 OK!");
     }
     // Envío los datos solicitados
