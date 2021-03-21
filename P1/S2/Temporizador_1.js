@@ -9,7 +9,7 @@ function tarea1() {
 
 //-- Llamada retardada mediante temporizador
 //-- Cuando transcurran 1000 ms se llama a la función tarea 1
-setTimeout(tarea1, 5000);
+setTimeout(tarea1, 1000);
 
 
 //-- Esta estructura también es muy típica: incluir la función 
