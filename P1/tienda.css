@@ -35,39 +35,73 @@ h2{
     font-family: "Walt Disney Script", arial;
 }
 
+/*#productos{
+    overflow: hidden;    
+    width: 320px;
+}
+
+#productos{
+    width: 330px;
+    margin-top: -10px;
+}
+/*
 #tarta_nena{
-    margin-right: 50px;
-    margin-top: 50px;
     height: 300px;
     width: 300px;
+    float: left;
+    margin: 10, 10, 0, 0;
 }
 
 #cesta_pluto{
-    margin-right: 50px;
-    margin-top: 50px;
     height: 300px;
     width: 300px;
+    float: right;
+    margin: 10, 10, 0, 0;
 }
 
 #cesta_completa{
-    margin-right: 50px;
-    margin-top: 50px;
     height: 300px;
     width: 300px;
+    float: right;
+    margin: 10, 10, 0, 0;
 }
 
 #cesta_oso{
-    margin-right: 50px;
-    margin-top: 50px;
     height: 300px;
     width: 300px;
+    float: inline-start;
+    margin: 10, 10, 0, 0;
 }
 
 #tarta_mickey{
-    margin-right: 50px;
-    margin-top: 50px;
     height: 300px;
     width: 300px;
+    float: inline-end;
+    margin: 10, 10, 0, 0;
+}*/
+
+.productos {
+    width: 100%;
+}
+
+td{
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: auto;
+}
+
+/*.columna {
+    width: 15%;
+    float:left;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    /*font-size: 15px;*/
 }
 
 a{
