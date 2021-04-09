@@ -84,16 +84,14 @@ h2{
     width: 100%;
 }
 
-td{
-    margin-bottom: 50px;
-    margin-left: 30px;
-}
+/*td{
+    margin-bottom: 30px;
+    margin-left: 10px;
+}*/
 
 img {
     width: 300px;
     height: 300px;
-    display: block;
-    margin: auto;
 }
 
 /*.columna {
@@ -101,14 +99,19 @@ img {
     float:left;
     margin-left: 50px;
     margin-bottom: 50px;
-    /*font-size: 15px;*/
+    /*font-size: 15px;
 }
-
+*/
 a{
-    font-family: "Walt Disney Script", arial;
+    font-family: arial;
     text-align: center;
     padding: 10px;
     font-weight: 400;
     font-size: 40px;
-
+    margin-left: 500px;
 }
+
+#nombres{
+    float: center;
+}
+
