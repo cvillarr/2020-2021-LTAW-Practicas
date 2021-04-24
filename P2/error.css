@@ -1,0 +1,28 @@
+body {
+    background-color: red;
+}
+
+h1{
+    text-align: center;
+    padding: 10px;
+    font-weight: 200px;
+    font-size: 80px;
+}
+
+h2{
+    text-align: center;
+    padding: 10px;
+    font-weight: 80px;
+    font-size: 40px;
+}
+
+h4{
+    text-align: center;
+    padding: 10px;
+    font-weight: 80px;
+    font-size: 20px;
+}
+
+.gif {
+    margin-left: 500px;
+}
