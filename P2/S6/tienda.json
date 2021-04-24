@@ -1,0 +1,90 @@
+[
+
+    {
+        "usuarios": [ 
+                        {
+                            "usuario": "cvillar",
+                            "nombre": "CarmenVillar",
+                            "email": "carmenvillar@email.es"
+
+                        },
+                        {
+                            "usuario": "root",
+                            "nombre": "rootuser",
+                            "email": "rootuser@email.es"
+                        }
+                    ]
+    },
+    {
+        "productos": [
+                        {
+                            "nombre": "Tarta Nena",
+                            "descripcion": "Tarta especial de pañales",
+                            "precio": "60€",
+                            "stock": 5
+                        },
+                        {
+                            "nombre": "Cesta Pluto",
+                            "descripcion": "Cesta con productos básicos personalizada de Pluto",
+                            "precio": "55€",
+                            "stock": 2
+                        },
+                        {
+                            "nombre": "Cesta Completa",
+                            "descripcion": "Cesta con todos los productos básicos necesarios para un recién nacido",
+                            "precio": "100€",
+                            "stock": 8
+                        },
+                        {
+                            "nombre": "Cesta Oso",
+                            "descripcion": "Cesta con básicos con peluche de oso",
+                            "precio": "80€",
+                            "stock": 10
+                         },
+                         {
+                            "nombre": "Tarta Mickey",
+                            "descripcion": "Tarta personalizada de Mickey para un pequeño más mayor",
+                            "precio": "50€",
+                            "stock": 5
+                         }
+                    ]      
+    },
+    {
+        "pedidos": [
+                        {   
+                            "usuario": "cvillar",
+                            "tarjeta": 11296,
+                            "direccion": "mi casa",
+                            "productos": [
+                                            {
+                                                "producto": "Cesta Completa",
+                                                "unidades": 1
+                                            },
+                                            {
+                                                "producto": "Tarta Mickey",
+                                                "unidades": 1
+                                            }
+                                         ]
+                        }, 
+                        {   
+                            "usuario": "root",
+                            "tarjeta": 3763,
+                            "direccion": "su casa",
+                            "productos": [
+                                            {
+                                                "producto": "Tarta Nena",
+                                                "unidades": 1
+                                            },
+                                            {
+                                                "producto": "Cesta Oso",
+                                                "unidades": 1
+                                            },
+                                            {
+                                                "producto": "Cesta Pluto",
+                                                "unidades": 1
+                                            }
+                                         ]
+                        }
+                   ]
+    }
+]
