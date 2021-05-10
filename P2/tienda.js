@@ -50,10 +50,10 @@ console.log("\nSe ha solicitado el recurso: " + url.pathname);
 let peticion = "";
 
 //Analizo el recurso solicitado por el cliente
-if (url.pathname == "/") {
-peticion += "/tienda.html"; //petición de la pag principal 
+if (url.pathname == '/') {
+    peticion += '/tienda.html'; //petición de la pag principal 
 } else {
-peticion += url.pathname; //petición de cualquier otra
+    peticion += url.pathname; //petición de cualquier otra
 }
 
 //Obtengo el tipo de recurso solicitado separando el nombre de la extensión
@@ -196,6 +196,7 @@ fs.readFile(peticion, (err, data) => {
     }
 
 // Envío los datos solicitados
+    // *******revisar ejemplos de clase res.contenttype!!!!!!!!
     res.write(data);
     res.end();
 });
