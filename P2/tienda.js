@@ -196,7 +196,7 @@ fs.readFile(peticion, (err, data) => {
     }
 
 // Envío los datos solicitados
-    // *******revisar ejemplos de clase res.contenttype!!!!!!!!
+    res.setHeader('Content-Type', content_type);
     res.write(data);
     res.end();
 });
