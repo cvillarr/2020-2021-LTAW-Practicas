@@ -3,6 +3,7 @@ const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
 const colors = require('colors');
+const { send } = require('process');
 
 const PUERTO = 8080;
 
@@ -33,6 +34,9 @@ let mensaje_bienvenida = (">> BIENVENID@!!");
 //mensaje para cuando no se reconoce lo que se solicita
 let mensaje_norec = ("No se reconoce el comando");
 
+//mensaje de desconexión
+let mensaje_desc = (">> UN MIEMBRO DEL CHAT SE HA IDO");
+
 // creamos una nueva app web
 const app = express();
 
@@ -56,6 +60,51 @@ app.use('/', express.statis(__dirname + '/'));
 // El directorio publico contiene ficheros estáticos
 app.use(express.static('public'));
 
+// Nueva conexión recibida
+io.on ('connect', (socket) => {
+    console.log ("NUEVA CONEXIÓN!".green);
+    // Aumentamos el número de usuarios    
+    user_on += 1;
+    // Enviamos el mensaje de bienvenida
+    socket.send(mensaje_bienvenida);
+
+    // Evento de desconexión
+    socket.on('disconnect', function(){
+        console.log('** CONEXIÓN TERMINADA **'.red);
+    // Disminuimos el número de usuarios
+        user_on -= 1;
+    // Enviamos mensaje de desconexión
+        io.send(mensaje_desc);
+    });
+
+
+    // Enviamos info correspondiente a cada uno de los comandos que tengo definidos
+    socket.on("message", (msg) => {
+        console.log ("Comando recibido!: " + msg.white);
+
+        if (msg == '/help'){
+            socket.send(help);
+        } else if (msg == '/list') {
+            socket.send(mensaje_usuarios);
+        } else if (msg == '/hello') {
+            socket.send(mensaje_hello)
+        } else if (msg == '/date') {
+            socket.send(mensaje_fecha)
+        } else {
+            socket.send(mensaje_norec)
+        }
+    });
+
+    // enviamos el mensaje recibido, va para todos los usuarios
+    socket.on("message", (msg) => {
+        console.log("Mensaje recibido!: " + msg.white);
+        io.send(msg);
+    });
+});
+
+// Lanzamos el servidor HTTP y... EMPEZAMOS!
+server.listen(PUERTO);
+console.log("Escuchando en el puerto: " + PUERTO);
 
 
 
