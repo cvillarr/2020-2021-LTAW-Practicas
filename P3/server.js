@@ -9,9 +9,6 @@ const PUERTO = 8080;
 //creamos la variable para almacenar el nº de usuarios conectados
 let user_on = 0;
 
-//mensaje para cuando me pidan el nº de usuarios conectados
-let mensaje_usuarios = ("Hay " + user_on + " usuarios conectados");
-
 //creamos la variable para cuando el cliente nos pida los comandos /help 
 let help = "<p> /help: Lista de los comandos soportados</p> \
 <p> /list: Número de usuarios conectados</p> \
@@ -29,9 +26,6 @@ let mensaje_hello = ("HOLA!! Soy el servidor!");
 
 // mensaje para dar la bienvenida al chat
 let mensaje_bienvenida = (">> BIENVENID@!!");
-
-//mensaje para cuando no se reconoce lo que se solicita
-let mensaje_norec = ("No se reconoce el comando");
 
 //mensaje de desconexión
 let mensaje_desc = (">> UN MIEMBRO DEL CHAT SE HA IDO");
@@ -51,7 +45,6 @@ const io = socket(server);
 app.get('/', (req, res) => {
     path = __dirname + '/public/index.html';
     res.sendFile(path);
-    console.log("Solicitando acceso");
 });
 
 // Esto es necesario para que el servidor le envíe al cliente la
@@ -64,42 +57,49 @@ app.use(express.static('public'));
 // Nueva conexión recibida
 io.on ('connect', (socket) => {
     console.log ("NUEVA CONEXIÓN!".green);
-    // Aumentamos el número de usuarios    
-    user_on += 1;
+
     // Enviamos el mensaje de bienvenida
     socket.send(mensaje_bienvenida);
+
+    //Mensaje de que se ha conectado un nuevo usuario
+    io.send("Nuevo usuario conectado!");
+
+    // Aumentamos el número de usuarios    
+    user_on += 1;
+
+    // Enviamos el nº de usuarios que hay conectados
+    //console.log("Número de usuarios: " + user_on);
 
     // Evento de desconexión
     socket.on('disconnect', function(){
         console.log('** CONEXIÓN TERMINADA **'.red);
-    // Disminuimos el número de usuarios
-        user_on -= 1;
-    // Enviamos mensaje de desconexión
-        io.send(mensaje_desc);
-    });
 
+    // Enviamos mensaje de desconexión
+       io.send(mensaje_desc);
+    
+       // Disminuimos el número de usuarios
+        user_on -= 1;
+
+   
+        //Enviamos el nº de usuarios que hay conectados
+        //console.log("Número de usuarios: " + user_on);
+    });
 
     // Enviamos info correspondiente a cada uno de los comandos que tengo definidos
     socket.on("message", (msg) => {
-        console.log ("Comando recibido!: " + msg.white);
+        console.log ("Mensaje recibido!: " + msg.white);
 
         if (msg == '/help'){
             socket.send(help);
         } else if (msg == '/list') {
             socket.send(mensaje_usuarios);
         } else if (msg == '/hello') {
-            socket.send(mensaje_hello)
+            socket.send(mensaje_hello);
         } else if (msg == '/date') {
-            socket.send(mensaje_fecha)
+            socket.send(mensaje_fecha);
         } else {
-            socket.send(mensaje_norec)
+            io.send(msg);
         }
-    });
-
-    // enviamos el mensaje recibido, va para todos los usuarios
-    socket.on("message", (msg) => {
-        console.log("Mensaje recibido!: " + msg.white);
-        io.send(msg);
     });
 });
 
