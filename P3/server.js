@@ -3,7 +3,6 @@ const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
 const colors = require('colors');
-const { send } = require('process');
 
 const PUERTO = 8080;
 
@@ -46,16 +45,18 @@ const server = http.Server(app);
 // creamos el servidor de websockets, asociado al servidor http
 const io = socket(server); 
 
+
 //------- PUNTOS DE ENTRADA A LA APP WEB
 // defino punto de entrada principal (index.html) de la carpeta public
 app.get('/', (req, res) => {
     path = __dirname + '/public/index.html';
     res.sendFile(path);
+    console.log("Solicitando acceso");
 });
 
 // Esto es necesario para que el servidor le envíe al cliente la
 // biblioteca socket.io para el cliente
-app.use('/', express.statis(__dirname + '/'));
+app.use('/', express.static(__dirname + '/'));
 
 // El directorio publico contiene ficheros estáticos
 app.use(express.static('public'));
