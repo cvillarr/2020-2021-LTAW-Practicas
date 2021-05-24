@@ -15,12 +15,6 @@ let help = "<p> /help: Lista de los comandos soportados</p> \
 <p> /hello: El servidor nos saluda </p> \
 <p> /date: Devuelve la fecha actual</p>";
 
-//creamos la variable para cuando el cliente me pida la fecha actual
-let date = new Date();
-
-// mensaje para cuando me pidan la fecha
-let mensaje_fecha = ("Fecha actual: " + date);
-
 // mensaje para cuando el servidor nos saluda
 let mensaje_hello = ("HOLA!! Soy el servidor!");
 
@@ -77,13 +71,14 @@ io.on ('connect', (socket) => {
     // Enviamos mensaje de desconexión
        io.send(mensaje_desc);
     
-       // Disminuimos el número de usuarios
+    // Disminuimos el número de usuarios
         user_on -= 1;
 
-   
-        //Enviamos el nº de usuarios que hay conectados
+     //Enviamos el nº de usuarios que hay conectados
         //console.log("Número de usuarios: " + user_on);
     });
+
+    
 
     // Enviamos info correspondiente a cada uno de los comandos que tengo definidos
     socket.on("message", (msg) => {
@@ -92,10 +87,16 @@ io.on ('connect', (socket) => {
         if (msg == '/help'){
             socket.send(help);
         } else if (msg == '/list') {
+            //mensaje para decir cuantos usuarios hay conectados
+            let mensaje_usuarios = ("Hay " + user_on + " usuario/s conectados");
             socket.send(mensaje_usuarios);
         } else if (msg == '/hello') {
             socket.send(mensaje_hello);
         } else if (msg == '/date') {
+            //creamos la variable para cuando el cliente me pida la fecha actual
+            let date = new Date();
+            // mensaje para cuando me pidan la fecha
+            let mensaje_fecha = ("Fecha actual: " + date);
             socket.send(mensaje_fecha);
         } else {
             io.send(msg);
