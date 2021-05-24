@@ -78,11 +78,9 @@ io.on ('connect', (socket) => {
         //console.log("Número de usuarios: " + user_on);
     });
 
-    
-
     // Enviamos info correspondiente a cada uno de los comandos que tengo definidos
     socket.on("message", (msg) => {
-        console.log ("Mensaje recibido!: " + msg.white);
+        console.log ("Mensaje recibido: " + msg.white);
 
         if (msg == '/help'){
             socket.send(help);

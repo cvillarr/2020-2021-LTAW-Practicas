@@ -1,12 +1,23 @@
 body {
-    background-color: lightblue;
+    background-image: url(public/fondo.jpg);
+    background-size: cover;
     font-family: "Roboto";
     font-size: 30px;
 }
 
-h2{
+h1{
     text-align: center;
-    width: 250px;
+    
+    width: 1400px;
     color:deeppink;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#msg_entry{
+    text-align: center;
+    color: blue;
+}
+
+#display{
+    text-align: center;   
 }
