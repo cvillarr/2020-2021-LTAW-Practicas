@@ -8,6 +8,7 @@ let tono = new Audio('tono.mp3');
 //Crear un websocket. Se establece la conexión con el servidor
 const socket = io();
 
+//Envío del mensaje
 socket.on("message", (msg)=>{
   display.innerHTML += '<p style="color:black">' + msg + '</p>';
   tono.play();
