@@ -12,11 +12,7 @@ h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.content-box{
-    box-sizing: border-box;
-    width: 150px;
-    
-}
+
 #msg_entry{
     text-align: center;
     align-items: center;

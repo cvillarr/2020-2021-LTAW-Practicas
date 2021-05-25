@@ -2,11 +2,15 @@
 const display = document.getElementById("display");
 const msg_entry = document.getElementById("msg_entry");
 
+//Cargamos el tono
+let tono = new Audio('tono.mp3');
+
 //Crear un websocket. Se establece la conexión con el servidor
 const socket = io();
 
 socket.on("message", (msg)=>{
   display.innerHTML += '<p style="color:black">' + msg + '</p>';
+  tono.play();
 });
 
 //Al apretar el botón se envía un mensaje al servidor
