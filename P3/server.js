@@ -10,13 +10,13 @@ const PUERTO = 8080;
 let user_on = 0;
 
 //creamos la variable para cuando el cliente nos pida los comandos /help 
-let help = "<p> /help: Lista de los comandos soportados</p> \
-<p> /list: Número de usuarios conectados</p> \
-<p> /hello: El servidor nos saluda </p> \
-<p> /date: Devuelve la fecha actual</p>";
+let help = "<p> >> /help: Lista de los comandos soportados</p> \
+<p> >> /list: Número de usuarios conectados</p> \
+<p> >> /hello: El servidor nos saluda </p> \
+<p> >> /date: Devuelve la fecha actual</p>";
 
 // mensaje para cuando el servidor nos saluda
-let mensaje_hello = ("HOLA!! Soy el servidor!");
+let mensaje_hello = (">>HOLA!! Soy el servidor!");
 
 // mensaje para dar la bienvenida al chat
 let mensaje_bienvenida = (">> BIENVENID@!!");
@@ -56,7 +56,7 @@ io.on ('connect', (socket) => {
     socket.send(mensaje_bienvenida);
 
     //Mensaje de que se ha conectado un nuevo usuario
-    io.send("Nuevo usuario conectado!");
+    io.send(">> Tenemos un nuevo usuario con nosotros!!");
 
     // Aumentamos el número de usuarios    
     user_on += 1;
@@ -86,7 +86,7 @@ io.on ('connect', (socket) => {
             socket.send(help);
         } else if (msg == '/list') {
             //mensaje para decir cuantos usuarios hay conectados
-            let mensaje_usuarios = ("Hay " + user_on + " usuario/s conectados");
+            let mensaje_usuarios = (">> Hay " + user_on + " usuario/s conectados");
             socket.send(mensaje_usuarios);
         } else if (msg == '/hello') {
             socket.send(mensaje_hello);
@@ -94,10 +94,10 @@ io.on ('connect', (socket) => {
             //creamos la variable para cuando el cliente me pida la fecha actual
             let date = new Date();
             // mensaje para cuando me pidan la fecha
-            let mensaje_fecha = ("Fecha actual: " + date);
+            let mensaje_fecha = (">> Fecha actual: " + date);
             socket.send(mensaje_fecha);
         } else {
-            io.send(msg);
+            io.send(">> " + msg);
         }
     });
 });
