@@ -12,6 +12,12 @@ h1{
     font-family: "bubblegum"; src: url('BubblegumSans-Regular.otf');
 }
 
+#msg_nick{
+    text-align: center;
+    align-items: center;
+    margin-left: 500px;
+    padding: 10px 20px;
+}
 
 #msg_entry{
     text-align: center;
