@@ -1,0 +1,43 @@
+body {
+    background-image: url(public/fondo.jpg);
+    background-size: cover;
+    font-family: "bubblegum"; src: url('BubblegumSans-Regular.otf');
+    font-size: 30px;
+}
+
+h1{
+    text-align: center;
+    width: 1300px;
+    color:deeppink;
+    font-family: "bubblegum"; src: url('BubblegumSans-Regular.otf');
+}
+
+#msg_nick{
+    text-align: center;
+    align-items: center;
+    margin-left: 500px;
+    padding: 10px 20px;
+}
+
+#msg_entry{
+    text-align: center;
+    align-items: center;
+    margin-left: 450px;
+    padding: 10px 75px;
+}
+
+#display{
+    text-align: center;  
+    font-family: monospace;
+    font-size: large;    
+}
+
+#send{
+    background-color: rgb(245, 88, 135);
+    border:rgb(192, 82, 115);
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
