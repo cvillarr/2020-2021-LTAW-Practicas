@@ -13,6 +13,10 @@ const PUERTO = 8080;
 // se pone aqui para que sea global al módulo principal
 let win = null;
 
+//creamos variable para dirección ip
+let direccion_ip = ip.address();
+console.log("IP de la máquina: " + direccion_ip);
+
 //creamos la variable para almacenar el nº de usuarios conectados
 let user_on = 0;
 
@@ -44,7 +48,7 @@ const io = socket(server);
 //------- PUNTOS DE ENTRADA A LA APP WEB
 // defino punto de entrada principal (index.html) de la carpeta public
 app.get('/', (req, res) => {
-    path = __dirname + '/public/index.html';
+    path = __dirname + '/public/chat.html';
     res.sendFile(path);
 });
 
@@ -109,9 +113,6 @@ io.on ('connect', (socket) => {
     });
 });
 
-// Lanzamos el servidor HTTP y... EMPEZAMOS!
-server.listen(PUERTO);
-console.log("Escuchando en el puerto: " + PUERTO);
 
 // ------ CREAMOS LA APP DE ELECTRON ------- //
 
@@ -131,27 +132,26 @@ electron.app.on('ready', () => {
     });
 
     //cargamos la interfaz gráfica
-    win.loadFile("index.html");
+    let interfaz_grafica = "index.html";
+    win.loadFile(interfaz_grafica);
 
     //Información que tiene que mostrar la interfaz gráfica
     //version de node
-    version_node = process.versions.node;
+    //version_node = process.versions.node;
     //version de chrome
-    version_chrome = process.versions.chrome;
+    //version_chrome = process.versions.chrome;
     //version de electron
-    version_electron = process.versions.electron;
+    //version_electron = process.versions.electron;
     //dirección IP
-    direccion_ip = ip.address();
+    //direccion_ip = ip.address();
 
 
     //Esperar que la pág cargue y enviar el mensaje al proceso 
     //de renderizado para que lo saque por la interfaz gráfica
     win.on('ready-to-show', () => {
-        console.log("Enviando información");
-        win.webContents.send('version_node', version_node);
-        win.webContents.send('version_chrome', version_chrome);
-        win.webContents.send('version_electron', version_electron);
-        win.webContents.send('direccion_ip', direccion_ip);
+        let mensaje_ip = "http://" + direccion_ip + ":" + PUERTO + "/chat.html";
+        win.webContents.send('direccion_ip', mensaje_ip);
+        console.log(mensaje_ip);
     });
 });
 
@@ -161,7 +161,9 @@ electron.ipcMain.handle('test', (event,msg) => {
     io.send(msg);
 });
 
-
+// Lanzamos el servidor HTTP y... EMPEZAMOS!
+server.listen(PUERTO);
+console.log("Escuchando en el puerto: " + PUERTO);
 
 
 

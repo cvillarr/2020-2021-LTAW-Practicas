@@ -3,7 +3,7 @@
 const electron = require('electron');
 
 
-console.log("Holiii, estoy en el proceso de la web !!");
+console.log("Hola desde el index.js!!");
 
 //Obtenemos elementos de la interfaz
 const btn_test = document.getElementById("btn_test");
@@ -12,13 +12,27 @@ const version_node = document.getElementById("version_node");
 const version_chrome = document.getElementById("version_chrome");
 const version_electron = document.getElementById("version_electron");
 const direccion_ip = document.getElementById("IP");
-const user_on = document.getElementById("usuarios");
+const info_user_on = document.getElementById("usuarios");
 const print = document.getElementById("print");
+
+version_node.textContent = process.versions.node;
+version_chrome.textContent = process.versions.chrome;
+version_electron.textContent = process.versions.electron;
+
+//inicializamos el numero de usuarios para que se vaya actualizando
+let user_on = 0;
+info_user_on.innerHTML = user_on;
+
+//ip
+electron.ipcRenderer.on('ip', (event, message) => {
+    console.log("Dirección IP: " + message);
+    direccion_ip.innerHTML = message;
+});
 
 //Número de usuarios
 electron.ipcRenderer.on('usuarios', (event, message) => {
     console.log("Usuarios: " + message);
-    user_on.textContent = message;
+    info_user_on.textContent = message;
 });
 
 //Mensaje recibido de un cliente
