@@ -93,15 +93,17 @@ io.on ('connect', (socket) => {
     socket.on("message", (msg) => {
         console.log ("Mensaje recibido de " + msg.white);
 
-        if (msg == '/help'){
+        msg_split = msg.split(' ')[1];
+
+        if (msg_split == '/help'){
             socket.send(help);
-        } else if (msg == '/list') {
+        } else if (msg_split == '/list') {
             //mensaje para decir cuantos usuarios hay conectados
             let mensaje_usuarios = (">> Hay " + user_on + " usuario/s conectados");
             socket.send(mensaje_usuarios);
-        } else if (msg == '/hello') {
+        } else if (msg_split == '/hello') {
             socket.send(mensaje_hello);
-        } else if (msg == '/date') {
+        } else if (msg_split == '/date') {
             //creamos la variable para cuando el cliente me pida la fecha actual
             let date = new Date();
             // mensaje para cuando me pidan la fecha
@@ -134,17 +136,6 @@ electron.app.on('ready', () => {
     //cargamos la interfaz gráfica
     let interfaz_grafica = "index.html";
     win.loadFile(interfaz_grafica);
-
-    //Información que tiene que mostrar la interfaz gráfica
-    //version de node
-    //version_node = process.versions.node;
-    //version de chrome
-    //version_chrome = process.versions.chrome;
-    //version de electron
-    //version_electron = process.versions.electron;
-    //dirección IP
-    //direccion_ip = ip.address();
-
 
     //Esperar que la pág cargue y enviar el mensaje al proceso 
     //de renderizado para que lo saque por la interfaz gráfica
