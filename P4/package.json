@@ -1,30 +1,17 @@
 {
-    "name": "mi-electron-app",
-    "description": "Estas es mi primera aplicación de escritorio en Electron",
+    "name": "chat-electron",
+    "description": "Chat implementado con electron",
     "version": "0.1.0",
     "main": "main.js",
-    "autor": {
-        "name": "Obijuan"
-    },
-    "homepage": "",
-    "license": "LGPL",
     "scripts": {
-        "start": "electron .",
-        "pack": "electron-builder --dir",
-        "dist": "electron-builder",
-        "postinstall": "electron-builder install-app-deps"
+        "start": "electron ."
     },
-    "build": {
-        "appId": "mi-electron-app-1-id",
-        "linux": {
-            "target": [
-                "AppImage"
-            ],
-            "category": "Utility"
-        }
-    },
-
-    "devDependencies": {
-        "electron-builder": "^22.10.5"
+    "dependencies": {
+        "colors": "^1.4.0",
+        "electron": "^12.0.7",
+        "express": "^4.17.1",
+        "ip": "^1.1.5",
+        "socket.io": "^4.1.1",
+        "websocket": "^1.0.34"
     }
 }
