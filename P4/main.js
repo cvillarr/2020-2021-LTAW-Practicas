@@ -3,8 +3,14 @@ const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
 const colors = require('colors');
+const electron = require('electron');
+const ip = require('ip');
 
 const PUERTO = 8080;
+
+//creamos la variable para acceder a la ventana principal
+// se pone aqui para que sea global al módulo principal
+let win = null;
 
 //creamos la variable para almacenar el nº de usuarios conectados
 let user_on = 0;
@@ -105,6 +111,56 @@ io.on ('connect', (socket) => {
 // Lanzamos el servidor HTTP y... EMPEZAMOS!
 server.listen(PUERTO);
 console.log("Escuchando en el puerto: " + PUERTO);
+
+// ------ CREAMOS LA APP DE ELECTRON ------- //
+
+electron.app.on('ready', () => {
+    console.log("Evento Ready!");
+
+    //creamos ventana principal de la app
+    win = new electron.BrowserWindow({
+        widht: 650,
+        height: 600,
+
+        //permitimos que la ventana tenga acceso al sisitema
+        webPreferences: {
+            nodeIntegration: true, 
+            contextIsolation: false
+        }
+    });
+
+    //cargamos la interfaz gráfica
+    win.loadFile("index.html");
+
+    //Información que tiene que mostrar la interfaz gráfica
+    //version de node
+    version_node = process.versions.node;
+    //version de chrome
+    version_chrome = process.versions.chrome;
+    //version de electron
+    version_electron = process.versions.electron;
+    //dirección IP
+    ip = ip.address();
+
+
+    //Esperar que la pág cargue y enviar el mensaje al proceso 
+    //de renderizado para que lo saque por la interfaz gráfica
+    win.on('ready-to-show', () => {
+        console.log("Enviando información");
+        win.webContents.send('version node', version_node);
+        win.webContents.send('version chrome', version_chrome);
+        win.webContents.send('version electron', version_electron);
+        win.webContents.send('ip', ip);
+    });
+});
+
+// creamos proceso para enviar un mensaje a todos los usuarios 
+electron.ipcMain.handle('test', (event,msg) => {
+    console.log(">> Mensaje: " + msg);
+    io.send(msg);
+});
+
+
 
 
 
