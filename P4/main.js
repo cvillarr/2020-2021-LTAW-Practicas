@@ -147,9 +147,9 @@ electron.app.on('ready', () => {
     //de renderizado para que lo saque por la interfaz gráfica
     win.on('ready-to-show', () => {
         console.log("Enviando información");
-        win.webContents.send('version node', version_node);
-        win.webContents.send('version chrome', version_chrome);
-        win.webContents.send('version electron', version_electron);
+        win.webContents.send('version_node', version_node);
+        win.webContents.send('version_chrome', version_chrome);
+        win.webContents.send('version_electron', version_electron);
         win.webContents.send('ip', ip);
     });
 });

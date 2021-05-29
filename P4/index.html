@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+  
+
+    <!-- Permitir sólo scripts y ficheros de la máquina local -->
+    <!-- Con esto se elimina el aviso de seguridad: Insecure Content-Security-Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:" />
+    <title> P4: ELECTRON </title>
+
+    <!-- Cargar la biblioteca Socket.IO. Nos la debe entregar el servidor -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class = "primera_parte">
+        <h1>CHAT</h1>
+        <br>
+        <h3>INFORMACIÓN</h3>
+        <ul>
+            <li>Versión de Node: <span id="version_node" class="blue"></span></li>
+            <li>Versión de Chrome: <span id="version_chrome" class="blue"></span></li>
+            <li>Versión de Electron: <span id="version_electron" class="blue"></span></li>
+        </ul>
+        <hr>
+        <h3>USUARIOS CONECTADOS</h3>
+        <span id="user_on" class="blue"></span>
+        <hr>
+        <h3>DIRECCIÓN IP</h3>
+        <span id="ip" class="blue"></span>
+        <hr>
+    </div>
+
+    <div class = "segunda_parte">
+        <h3>PRUEBAS</h3>
+        <p><input type="button" value="Enviar" id="btn_test"></p>
+        <hr>
+        <h3>MENSAJES</h3>
+        <p id="display"></p>
+        <hr>
+    </div>  
+</body>
+</html>
