@@ -69,28 +69,28 @@ io.on ('connect', (socket) => {
         console.log('** CONEXIÓN TERMINADA **'.red);
 
     // Enviamos mensaje de desconexión
-       io.send(mensaje_desc);
+        io.send(mensaje_desc);
     
     // Disminuimos el número de usuarios
         user_on -= 1;
 
-     //Enviamos el nº de usuarios que hay conectados
-        //console.log("Número de usuarios: " + user_on);
     });
 
     // Enviamos info correspondiente a cada uno de los comandos que tengo definidos
     socket.on("message", (msg) => {
         console.log ("Mensaje recibido de " + msg.white);
+        
+        msg_text = msg.split(' ')[1];
 
-        if (msg == '/help'){
+        if (msg_text == '/help'){
             socket.send(help);
-        } else if (msg == '/list') {
+        } else if (msg_text == '/list') {
             //mensaje para decir cuantos usuarios hay conectados
             let mensaje_usuarios = (">> Hay " + user_on + " usuario/s conectados");
             socket.send(mensaje_usuarios);
-        } else if (msg == '/hello') {
+        } else if (msg_text == '/hello') {
             socket.send(mensaje_hello);
-        } else if (msg == '/date') {
+        } else if (msg_text == '/date') {
             //creamos la variable para cuando el cliente me pida la fecha actual
             let date = new Date();
             // mensaje para cuando me pidan la fecha
