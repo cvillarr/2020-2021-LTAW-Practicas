@@ -11,7 +11,7 @@ const display = document.getElementById("display");
 const version_node = document.getElementById("version_node");
 const version_chrome = document.getElementById("version_chrome");
 const version_electron = document.getElementById("version_electron");
-const ip = document.getElementById("IP");
+const direccion_ip = document.getElementById("IP");
 const user_on = document.getElementById("usuarios");
 const print = document.getElementById("print");
 

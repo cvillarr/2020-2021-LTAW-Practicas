@@ -5,6 +5,7 @@ const express = require('express');
 const colors = require('colors');
 const electron = require('electron');
 const ip = require('ip');
+const process = require('process');
 
 const PUERTO = 8080;
 
@@ -140,7 +141,7 @@ electron.app.on('ready', () => {
     //version de electron
     version_electron = process.versions.electron;
     //dirección IP
-    ip = ip.address();
+    direccion_ip = ip.address();
 
 
     //Esperar que la pág cargue y enviar el mensaje al proceso 
@@ -150,7 +151,7 @@ electron.app.on('ready', () => {
         win.webContents.send('version_node', version_node);
         win.webContents.send('version_chrome', version_chrome);
         win.webContents.send('version_electron', version_electron);
-        win.webContents.send('ip', ip);
+        win.webContents.send('direccion_ip', direccion_ip);
     });
 });
 
