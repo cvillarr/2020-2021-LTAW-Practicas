@@ -60,9 +60,7 @@ io.on ('connect', (socket) => {
 
     // Aumentamos el número de usuarios    
     user_on += 1;
-
-    // Enviamos el nº de usuarios que hay conectados
-    //console.log("Número de usuarios: " + user_on);
+    
 
     // Evento de desconexión
     socket.on('disconnect', function(){
