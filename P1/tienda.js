@@ -57,7 +57,9 @@ fs.readFile(peticion, (err, data) => {
 
     if (err){
     //Lanza error
-        res.writeHead(404,{'Content-Type': mime});
+        mime = "text/html";
+        res.writeHead(404, {'Content-Type': mime});
+        console.log("aqui error");
         console.log("NOT FOUND");
         petition = "error.html";
         data = fs.readFileSync(petition);
