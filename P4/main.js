@@ -94,20 +94,25 @@ io.on ('connect', (socket) => {
 
         if (msg_split == '/help'){
             socket.send(help);
+            win.webContents.send('print', msg);
         } else if (msg_split == '/list') {
             //mensaje para decir cuantos usuarios hay conectados
             let mensaje_usuarios = (">> Hay " + user_on + " usuario/s conectados");
             socket.send(mensaje_usuarios);
+            win.webContents.send('print', msg);
         } else if (msg_split == '/hello') {
             socket.send(mensaje_hello);
+            win.webContents.send('print', msg);
         } else if (msg_split == '/date') {
             //creamos la variable para cuando el cliente me pida la fecha actual
             let date = new Date();
             // mensaje para cuando me pidan la fecha
             let mensaje_fecha = (">> Fecha actual: " + date);
             socket.send(mensaje_fecha);
+            win.webContents.send('print', msg);
         } else {
             io.send(">> " + msg);
+            win.webContents.send('print', msg);
         }
     });
 });
