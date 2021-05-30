@@ -12,3 +12,4 @@ En la página principal implementaremos también la opción de meter un Login pa
 
 En el procesamiento de la compra, una vez que le usuario haya finalizado la compra, se mostrará la página con los productos seleccionarios y un formulario para rellenar los datos que falten del usuario. 
 
+#### No funciona correctamente
