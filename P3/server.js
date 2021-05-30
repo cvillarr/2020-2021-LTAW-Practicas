@@ -3,6 +3,7 @@ const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
 const colors = require('colors');
+const { Socket } = require('dgram');
 
 const PUERTO = 8080;
 
@@ -23,6 +24,9 @@ let mensaje_bienvenida = (">> BIENVENID@!!");
 
 //mensaje de desconexión
 let mensaje_desc = (">> UN MIEMBRO DEL CHAT SE HA IDO");
+
+//mensaje de comando no reconocido
+let mensaje_norec = (">> Comando no reconocido, inténtalo de nuevo!");
 
 // creamos una nueva app web
 const app = express();
@@ -94,6 +98,8 @@ io.on ('connect', (socket) => {
             // mensaje para cuando me pidan la fecha
             let mensaje_fecha = (">> Fecha actual: " + date);
             socket.send(mensaje_fecha);
+        } else if (msg_split.startsWith("/")){
+            socket.send(mensaje_norec);
         } else {
             io.send(">> " + msg);
         }
