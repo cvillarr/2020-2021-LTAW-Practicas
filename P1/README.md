@@ -33,7 +33,7 @@ En esta primera práctica creamos una página web. Implementamos tanto la parte 
 
 ### Mejoras
 He añadido música en cada una de las páginas. 
-En la página principal se podrá escuchar un hilo musical mientras que se visita la misma, y cada vez que visitemos cada una de las páginas de los distintos productos, se reproducirá una música diferente.
+Una vez que nos conectamos al servidor en el navegador se inicia la música automáticamente. Al igual que cada vez que entramos en cada uno de los productos la música respectiva al artículo se escucha automáticamente y cuando volvemos a la página principal se vuelve a escuchar el hilo musical de la página principal. 
 También se reproducirá un sonido de error cuando el recurso solicitado no está disponible.  
 
 
