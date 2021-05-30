@@ -145,7 +145,7 @@ electron.app.on('ready', () => {
     win.on('ready-to-show', () => {
         let mensaje_ip = "http://" + direccion_ip + ":" + PUERTO + "/chat.html";
         win.webContents.send('ip', mensaje_ip);
-        console.log("Dirección IP: " + mensaje_ip);
+        console.log("Dirección URL: " + mensaje_ip);
     });
 });
 
