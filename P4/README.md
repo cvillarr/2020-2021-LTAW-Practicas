@@ -31,5 +31,4 @@ En esta aplicación podremos ver:
   Que corresponden a los mismos archivos que teníamos en la práctica 3 pero con los nombres ligeramente cambiados para que no hubiese problemas. 
 
 ### Mejoras implementadas
-Mostramos información acerca de la arquitectura, máquina, directorio del sistema. 
-
+Mostramos información acerca de la arquitectura, máquina, directorio del sistema.

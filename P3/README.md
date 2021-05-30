@@ -19,7 +19,7 @@ los cuales les aparecerán únicamente a la persona que lo haya escrito.
 7. Cada vez que alguien se desconecte del chat, aparecerá un mensaje tanto en el navegador del resto de usuarios conectados como en el terminal indicando que alguien ha abandonado el chat. 
 
 ### Archivos que encontramos en el repositorio
-* server.js -> archivo principal .
+* server.js -> archivo principal.
 * package.json -> información sobre el proyecto.
 * package-lock.json -> Describe el árbol de dependencias generado para que en otras máquinas se pueda replicar igual (sin tener que guardar en el repositorio el propio arbol de dependencias).
 * El resto de archivos se encuentran en la carpeta public:
