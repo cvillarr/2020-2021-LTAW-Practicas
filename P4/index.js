@@ -11,6 +11,8 @@ const display = document.getElementById("display");
 const version_node = document.getElementById("version_node");
 const version_chrome = document.getElementById("version_chrome");
 const version_electron = document.getElementById("version_electron");
+const arquitectura = document.getElementById("arquitectura");
+const plataforma = document.getElementById("plataforma");
 const direccion_ip = document.getElementById("direccion_ip");
 const info_user_on = document.getElementById("info_user_on");
 const print = document.getElementById("print");
@@ -18,6 +20,9 @@ const print = document.getElementById("print");
 version_node.textContent = process.versions.node;
 version_chrome.textContent = process.versions.chrome;
 version_electron.textContent = process.versions.electron;
+arquitectura.textContent = process.arch;
+plataforma.textContent = process.platform;
+
 
 //inicializamos el numero de usuarios para que se vaya actualizando
 let user_on = 0;
