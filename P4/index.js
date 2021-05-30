@@ -12,7 +12,7 @@ const version_node = document.getElementById("version_node");
 const version_chrome = document.getElementById("version_chrome");
 const version_electron = document.getElementById("version_electron");
 const direccion_ip = document.getElementById("direccion_ip");
-const info_user_on = document.getElementById("usuarios");
+const info_user_on = document.getElementById("info_user_on");
 const print = document.getElementById("print");
 
 version_node.textContent = process.versions.node;
@@ -34,20 +34,21 @@ btn_test.onclick = () => {
 };
 
 //ip
-electron.ipcRenderer.on('direccion_ip', (event, message) => {
+electron.ipcRenderer.on('ip', (event, message) => {
     console.log("Dirección IP: " + message);
     direccion_ip.innerHTML = message;
 });
 
 //Número de usuarios
-electron.ipcRenderer.on('usuarios', (event, message) => {
+electron.ipcRenderer.on('info_user_on', (event, message) => {
     console.log("Usuarios: " + message);
     info_user_on.innerHTML = message;
 });
 
 //Mensaje recibido de un cliente
-electron.ipcRenderer.on('msg_client', (event, message) => {
+electron.ipcRenderer.on('print', (event, message) => {
     console.log("Mensaje: " + message);
-    mensajes.innerHTML += '<p>' + message + "</p>";
+    display.innerHTML += '<p>' + message + "</p>";
+    print.textContent = message;
 });
 
