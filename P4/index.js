@@ -11,7 +11,7 @@ const display = document.getElementById("display");
 const version_node = document.getElementById("version_node");
 const version_chrome = document.getElementById("version_chrome");
 const version_electron = document.getElementById("version_electron");
-const direccion_ip = document.getElementById("IP");
+const direccion_ip = document.getElementById("direccion_ip");
 const info_user_on = document.getElementById("usuarios");
 const print = document.getElementById("print");
 
@@ -34,7 +34,7 @@ btn_test.onclick = () => {
 };
 
 //ip
-electron.ipcRenderer.on('ip', (event, message) => {
+electron.ipcRenderer.on('direccion_ip', (event, message) => {
     console.log("Dirección IP: " + message);
     direccion_ip.innerHTML = message;
 });
