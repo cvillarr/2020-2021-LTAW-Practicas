@@ -23,6 +23,16 @@ version_electron.textContent = process.versions.electron;
 let user_on = 0;
 info_user_on.innerHTML = user_on;
 
+//Mensajes enviados al main
+btn_test.onclick = () => {
+    //Escribimos en el display un mensaje para todos los usuarios
+    display.innerHTML += '<p>' + "Hola a todos!!" + '</p>';
+    console.log("Botón apretado!");
+
+    //Enviamos mensaje al main
+    electron.ipcRenderer.invoke('test', "Hola a todos!!");
+};
+
 //ip
 electron.ipcRenderer.on('ip', (event, message) => {
     console.log("Dirección IP: " + message);
@@ -32,7 +42,7 @@ electron.ipcRenderer.on('ip', (event, message) => {
 //Número de usuarios
 electron.ipcRenderer.on('usuarios', (event, message) => {
     console.log("Usuarios: " + message);
-    info_user_on.textContent = message;
+    info_user_on.innerHTML = message;
 });
 
 //Mensaje recibido de un cliente
@@ -41,12 +51,3 @@ electron.ipcRenderer.on('msg_client', (event, message) => {
     mensajes.innerHTML += '<p>' + message + "</p>";
 });
 
-//Mensajes enviados al main
-btn_test.onclick = () => {
-    //Escribimos en el display un mensaje para todos los usuarios
-    display.innerHTML += '<p>' + "Hola a todos!!" + '</p>';
-    console.log("Botón apretado!");
-
-    //Enviamos mensaje al main
-    electron.ipcRenderer.invoke('test', "Hola a todos!!");
-}
