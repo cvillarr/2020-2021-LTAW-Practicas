@@ -71,6 +71,7 @@ io.on ('connect', (socket) => {
 
     // Aumentamos el número de usuarios    
     user_on += 1;
+    win.webContents.send('info_user_on', user_on);
 
 
     // Evento de desconexión
@@ -82,6 +83,7 @@ io.on ('connect', (socket) => {
     
     // Disminuimos el número de usuarios
         user_on -= 1;
+        win.webContents.send('info_user_on', user_on);
     });
 
     // Enviamos info correspondiente a cada uno de los comandos que tengo definidos
@@ -109,6 +111,7 @@ io.on ('connect', (socket) => {
         }
     });
 });
+
 
 
 // ------ CREAMOS LA APP DE ELECTRON ------- //
