@@ -23,8 +23,19 @@ li{
     color:deeppink;
 }
 
+#carrito{
+    position: center;
+    top: 50px;
+    margin-left: 550px;
+}
+
 p{
         text-align: center;
         font-family: sans-serif;
         color:deeppink;
+}
+
+h6{
+    margin-left: 550px;
+    margin-top: 10px;
 }

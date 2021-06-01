@@ -23,8 +23,19 @@ li{
     color:blue;
 }
 
+#carrito{
+    position: center;
+    top: 50px;
+    margin-left: 550px;
+}
+
 p{
     text-align: center;
     font-family: sans-serif;
     color:blue;
+}
+
+h6{
+    margin-left: 550px;
+    margin-top: 10px;
 }

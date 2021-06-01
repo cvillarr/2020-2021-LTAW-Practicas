@@ -175,6 +175,7 @@ fs.readFile(peticion, (err, data) => {
 
     if (err){
     //Lanza error
+        mime = "text/html";
         res.writeHead(404,{'Content-Type': mime});
         console.log("NOT FOUND");
         petition = "error.html";
