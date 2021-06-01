@@ -100,47 +100,49 @@ cesta1 = cesta1.replace("Stock", datos);
 //PRODUCTO2
 let cesta2 = CESTA2;
 datos = tienda[1].productos[1]['nombre'];
-cesta1 = cesta1.replace("Nombre", datos);
+cesta2 = cesta2.replace("Nombre", datos);
 datos = tienda[1].productos[1]['descripcion'];
-cesta1 = cesta1.replace("Descripción", datos);
+cesta2 = cesta2.replace("Descripción", datos);
 datos = tienda[1].productos[1]['precio'];
-cesta1 = cesta1.replace("Precio", datos); 
+cesta2 = cesta2.replace("Precio", datos); 
 datos = tienda[1].productos[1]['stock'];
-cesta1 = cesta1.replace("Stock", datos);
+cesta2 = cesta2.replace("Stock", datos);
 
 
 //PRODUCTO3
 let cesta3 = CESTA3;
 datos = tienda[1].productos[2]['nombre'];
-cesta1 = cesta1.replace("Nombre", datos);
+cesta3 = cesta3.replace("Nombre", datos);
 datos = tienda[1].productos[2]['descripcion'];
-cesta1 = cesta1.replace("Descripción", datos);
+cesta3 = cesta3.replace("Descripción", datos);
 datos = tienda[1].productos[2]['precio'];
-cesta1 = cesta1.replace("Precio", datos); 
+cesta3 = cesta3.replace("Precio", datos); 
 datos = tienda[1].productos[2]['stock'];
-cesta1 = cesta1.replace("Stock", datos);
+cesta3 = cesta3.replace("Stock", datos);
 
 //PRODUCTO4
 let cesta4 = CESTA4;
 datos = tienda[1].productos[3]['nombre'];
-cesta1 = cesta1.replace("Nombre", datos);
+cesta4 = cesta4.replace("Nombre", datos);
 datos = tienda[1].productos[3]['descripcion'];
-cesta1 = cesta1.replace("Descripción", datos);
+cesta4 = cesta4.replace("Descripción", datos);
 datos = tienda[1].productos[3]['precio'];
-cesta1 = cesta1.replace("Precio", datos); 
+cesta4 = cesta4.replace("Precio", datos); 
 datos = tienda[1].productos[3]['stock'];
-cesta1 = cesta1.replace("Stock", datos);
+cesta4 = cesta4.replace("Stock", datos);
+
 
 //PRODUCTO5
 let cesta5 = CESTA5;
 datos = tienda[1].productos[4]['nombre'];
-cesta1 = cesta1.replace("Nombre", datos);
+cesta5 = cesta5.replace("Nombre", datos);
 datos = tienda[1].productos[4]['descripcion'];
-cesta1 = cesta1.replace("Descripción", datos);
+cesta5 = cesta5.replace("Descripción", datos);
 datos = tienda[1].productos[4]['precio'];
-cesta1 = cesta1.replace("Precio", datos); 
+cesta5 = cesta5.replace("Precio", datos); 
 datos = tienda[1].productos[4]['stock'];
-cesta1 = cesta1.replace("Stock", datos);
+cesta5 = cesta5.replace("Stock", datos);
+
 
 //Leemos logins de la base de datos
 let username = url.searchParams.get('usuario');
