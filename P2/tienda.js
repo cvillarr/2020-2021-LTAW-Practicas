@@ -157,8 +157,6 @@ user = PROCESADO.replace("Nombre", username);
 user = user.replace("Nombre", nombre);
 
 //Mensaje que se escribe una vez registrado
-let html_extra = "";
-    let html_extra_condicion = "";
     if (user == login1 && nombre == nombre1 || user == login2 && nombre == nombre2) {
         html_extra = "<h2> Estás Registrad@!! </h2>";
         html_extra1 = "<h4> Página Principal Monerias </h4>";
@@ -174,7 +172,7 @@ user = user.replace("HTML_EXTRA1", html_extra1);
 fs.readFile(peticion, (err, data) => {
 
     if (err){
-    //Lanza error
+    //Lanza página de error
         mime = "text/html";
         res.writeHead(404,{'Content-Type': mime});
         console.log("NOT FOUND");
@@ -199,12 +197,12 @@ fs.readFile(peticion, (err, data) => {
     }
 
 // Envío los datos solicitados
-    //res.writeHead(200, {'Content-Type': content_type});
     res.write(data);
     res.end();
 });
 
 });
 
+//Nos conectamos el servidor y a por ello!!
 server.listen(PUERTO);
 console.log("Servidor de la tienda online escuchando en puerto: " + PUERTO);
