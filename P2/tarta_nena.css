@@ -28,3 +28,9 @@ li{
     top: 50px;
     left: 50px;
 }
+
+p{
+    text-align: center;
+    font-family: sans-serif;
+    color:deeppink;
+}
