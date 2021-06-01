@@ -172,7 +172,6 @@ user = user.replace("HTML_EXTRA1", html_extra1);
 
 //Lectura asíncrona
 fs.readFile(peticion, (err, data) => {
-
     if (err){
     //Lanza página de error
         mime = "text/html";
@@ -180,17 +179,17 @@ fs.readFile(peticion, (err, data) => {
         console.log("NOT FOUND");
         petition = "error.html";
         data = fs.readFileSync(petition);
-    } else if (peticion == "tarta_nena.html"){
+    } else if (peticion == "./tarta_nena.html"){
         data = cesta1;
-    } else if (peticion == "cesta_pluto.html"){
+    } else if (peticion == "./cesta_pluto.html"){
         data = cesta2;
-    } else if (peticion == "cesta_completa.html"){
+    } else if (peticion == "./cesta_completa.html"){
         data = cesta3;
-    } else if (peticion == "cesta_oso.html"){
+    } else if (peticion == "./cesta_oso.html"){
         data = cesta4;
-    } else if (peticion == "tarta_mickey.html"){
-            data = cesta5;
-    } else if (peticion == "procesado.html"){
+    } else if (peticion == "./tarta_mickey.html"){
+        data = cesta5;
+    } else if (peticion == "./procesado.html"){
         contType = "text/html";
         data = user;
     } else {
