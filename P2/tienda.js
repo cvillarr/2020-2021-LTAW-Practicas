@@ -96,6 +96,7 @@ cesta1 = cesta1.replace("Precio", datos);
 datos = tienda[1].productos[0]['stock'];
 cesta1 = cesta1.replace("Stock", datos);
 
+
 //PRODUCTO2
 let cesta2 = CESTA2;
 datos = tienda[1].productos[1]['nombre'];
@@ -106,6 +107,7 @@ datos = tienda[1].productos[1]['precio'];
 cesta1 = cesta1.replace("Precio", datos); 
 datos = tienda[1].productos[1]['stock'];
 cesta1 = cesta1.replace("Stock", datos);
+
 
 //PRODUCTO3
 let cesta3 = CESTA3;
@@ -177,17 +179,17 @@ fs.readFile(peticion, (err, data) => {
         console.log("NOT FOUND");
         petition = "error.html";
         data = fs.readFileSync(petition);
-    } else if (peticion = "tarta_nena.html"){
+    } else if (peticion == "tarta_nena.html"){
         data = cesta1;
-    } else if (peticion = "cesta_pluto.html"){
+    } else if (peticion == "cesta_pluto.html"){
         data = cesta2;
-    } else if (peticion = "cesta_completa.html"){
+    } else if (peticion == "cesta_completa.html"){
         data = cesta3;
-    } else if (peticion = "cesta_oso.html"){
+    } else if (peticion == "cesta_oso.html"){
         data = cesta4;
-    } else if (peticion = "tarta_mickey.html"){
+    } else if (peticion == "tarta_mickey.html"){
             data = cesta5;
-    } else if (peticion = "procesado.html"){
+    } else if (peticion == "procesado.html"){
         contType = "text/html";
         data = user;
     } else {
