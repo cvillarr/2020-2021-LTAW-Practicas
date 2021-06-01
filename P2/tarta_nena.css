@@ -22,3 +22,9 @@ li{
     font-family: sans-serif;
     color:deeppink;
 }
+
+#carrito{
+    position: center;
+    top: 50px;
+    left: 50px;
+}
